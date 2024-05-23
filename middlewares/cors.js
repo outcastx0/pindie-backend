@@ -4,7 +4,8 @@ const allowedCors = [
     'http://localhost:3000',
     'http://localhost:3001',
     // 'https://outcast.nomoredomainswork.ru',
-    'https://outcastx0.nomoredomainswork.ru/',
+    'https://outcastx0.nomoredomainswork.ru',
+    'outcastx0.nomoredomainswork.ru'
 ];
 
 function cors(req, res, next) {
