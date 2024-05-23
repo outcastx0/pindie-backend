@@ -1,13 +1,12 @@
 const allowedCors = [
     'https://practicum.yandex.ru',
     'https://students-projects.ru',
-    'http://localhost:3000',
-    'http://localhost:3001',
-    'https://outcastx0.nomoredomainswork.ru',
+    'https://outcastx0.nomoredomainswork.ru',   
 ];
 
 function cors(req, res, next) {
     const { origin } = req.headers;
+    console.log(origin);
 
     if (allowedCors.includes(origin)) {
         res.header('Access-Control-Allow-Origin', origin);
