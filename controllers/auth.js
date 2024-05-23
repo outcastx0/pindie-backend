@@ -3,11 +3,9 @@ const jwt = require('jsonwebtoken');
 const path = require('path');
 
 const login = (req, res) => {
-  const { email, password } = req.body;
+  const { username, email, password } = req.body;
 
-  user
-    .findUserByCredentials(email, password)
-    .then((user) => {
+  user.findUserByCredentials(email, password).then((user) => {
       const token = jwt.sign({ _id: user._id }, "some-secret-key", {
         expiresIn: 3600
       });

@@ -1,3 +1,4 @@
+const game = require("../models/game");
 const games = require("../models/game");
 
 const findAllGames = async (req, res, next) => {
@@ -37,11 +38,24 @@ const findGameById = async (req, res, next) => {
 
 const updateGame = async (req, res, next) => {
   try {
+    // console.log(req); // passed
+    // if (req.game.users.find((user) => {user.findById(user.id)})) {
+    //   console.log(req.game.users.find((user) => {user.findById(user.id)}));
+    // }
+    // console.log(req.body);
+    // if (games.findById(req.params.id).users.find((user) => user.id = req.body.user.id))
+    //   next();
+
+    // if (games.findById(req.params.id).users.findById(req.body)){
+    //   next();
+    // }
+    // console.log(req.body);
+    
     req.game = await games.findByIdAndUpdate(req.params.id, req.body);
     next();
   }
   catch {
-    res.setHeader('Content-Type', 'applicatino/json');
+    res.setHeader('Content-Type', 'application/json');
     res.status(400).send(JSON.stringify({ message: 'Ошибка обновления игры' }));
   }
 };
@@ -121,6 +135,11 @@ const checkIsVoteRequest = async (req, res, next) => {
   }
   next();
 };
+
+// const chechIfUserVoted = async(req, res, next) => {
+//   const isVoted = games.findById(req.params.id);
+//   console.log(isVoted);
+// }
 
 module.exports = {
   findAllGames, createGame, findGameById, updateGame, deleteGame, checkEmptyFields, checkIfCategoriesAvaliable,
