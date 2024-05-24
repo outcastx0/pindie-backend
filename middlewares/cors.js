@@ -6,7 +6,7 @@ const allowedCors = [
 ];
 
 function cors(req, res, next) {
-    const { origin } = req.headers;
+    const { origin } = req.header.origin;
 
     if (allowedCors.includes(origin)) {
         res.header("Access-Control-Allow-Origin", origin);
