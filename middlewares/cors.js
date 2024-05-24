@@ -1,7 +1,6 @@
 const allowedCors = [
     "https://practicum.yandex.ru",
     "https://students-projects.ru",
-    "http://localhost:3000",
     "https://outcast.nomoredomainswork.ru",
     "https://outcastx0.nomoredomainswork.ru",
 ];
