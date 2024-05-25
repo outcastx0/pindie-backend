@@ -7,7 +7,7 @@ const { sendAllUsers, sendUserCreated, sendUserById, sendUserUpdated, sendUserDe
 const { checkAuth } = require('../middlewares/auth');
 const { login } = require('../controllers/auth');
 
-usersRouter.post('/users', findAllUsers, checkIsRegisterRequest ,checkIsUserExists, checkEmptyNameAndEmailAndPassword, checkAuth, hashPassword, createUser, login, sendUserCreated);
+usersRouter.post('/users', findAllUsers, checkIsRegisterRequest ,checkIsUserExists, checkEmptyNameAndEmailAndPassword, checkAuth, hashPassword, createUser, sendUserCreated);
 usersRouter.get('/users', findAllUsers, sendAllUsers);
 usersRouter.get('/users/:id', findUserById, sendUserById);
 usersRouter.get("/me", checkAuth, sendMe);
