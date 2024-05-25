@@ -1,7 +1,14 @@
 const jwt = require("jsonwebtoken");
 
 const checkAuth = (req, res, next) => {
+    if (req.isRegisterRequest) {
+        next();
+    }
     const { authorization } = req.headers;
+
+    if (req.isRegisterRequest) {
+        next();
+    }
 
     if (!authorization || !authorization.startsWith("Bearer ")) {
         return res.status(401).send({ message: "Необходима авторизация" });

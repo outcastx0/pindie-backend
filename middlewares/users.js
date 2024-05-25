@@ -90,7 +90,12 @@ const hashPassword = async (req, res, next) => {
   }
 };
 
-module.exports = {
-  findAllUsers, createUser, findUserById, updateUser, deleteUser, checkEmptyNameAndEmailAndPassword, checkIsUserExists,
-  checkEmptyNameAndEmail, hashPassword
+const checkIsRegisterRequest = async (req, res, next) => { //для регистрации с фронта
+  if (req.body.username != "" && req.body.email != "" && req.body.password != "") {
+    req.isRegisterRequest = true;
+  }
+  next();
 };
+
+module.exports = { findAllUsers, createUser, findUserById, updateUser, deleteUser, checkEmptyNameAndEmailAndPassword, checkIsUserExists,
+  checkEmptyNameAndEmail, hashPassword, checkIsRegisterRequest };
