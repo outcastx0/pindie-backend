@@ -8,6 +8,7 @@ const checkAuth = (req, res, next) => {
 
     if (req.isRegisterRequest) {
         next();
+        return;
     }
 
     if (!authorization || !authorization.startsWith("Bearer ")) {
